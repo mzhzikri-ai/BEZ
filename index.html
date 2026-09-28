@@ -1,0 +1,602 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ManggaKu - Jual Mangga Segar</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #fffdf2;
+            color: #333;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: #f4b400;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav h2 {
+            color: white;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 450px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 8%;
+            background: linear-gradient(135deg, #fff3b0, #fffdf2);
+        }
+
+        .hero-text {
+            max-width: 550px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: #e09b00;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            background: #f4b400;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #d99d00;
+        }
+
+        .mango-icon {
+            font-size: 180px;
+        }
+
+        /* PRODUK */
+        .products {
+            padding: 60px 8%;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .title h2 {
+            font-size: 35px;
+            color: #e09b00;
+        }
+
+        .title p {
+            margin-top: 10px;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .product-image {
+            height: 200px;
+            background: #fff0a8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 100px;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: #e09b00;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* KEUNGGULAN */
+        .features {
+            padding: 60px 8%;
+            background: #fff4c2;
+        }
+
+        .feature-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .feature-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        /* KERANJANG */
+        .cart {
+            padding: 60px 8%;
+        }
+
+        .cart-box {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        #cartItems {
+            margin: 20px 0;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .total {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #e09b00;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .product-container,
+            .feature-container {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <h2>🥭 ManggaKu</h2>
+
+        <div>
+            <a href="#home">Home</a>
+            <a href="#produk">Produk</a>
+            <a href="#keunggulan">Keunggulan</a>
+            <a href="#keranjang">Keranjang 🛒</a>
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+            <h1>Mangga Segar Langsung dari Kebun 🥭</h1>
+
+            <p>
+                Nikmati mangga segar, manis, dan berkualitas.
+                Dipetik langsung dari kebun dan siap dikirim
+                ke rumah kamu.
+            </p>
+
+            <a href="#produk" class="btn">
+                Belanja Sekarang
+            </a>
+        </div>
+
+        <div class="mango-icon">
+            🥭
+        </div>
+
+    </section>
+
+
+    <!-- PRODUK -->
+    <section class="products" id="produk">
+
+        <div class="title">
+            <h2>Produk Mangga Kami</h2>
+            <p>Pilih mangga favoritmu</p>
+        </div>
+
+        <div class="product-container">
+
+            <!-- PRODUK 1 -->
+            <div class="card">
+
+                <div class="product-image">
+                    🥭
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Mangga Harum Manis</h3>
+
+                    <p>
+                        Mangga harum manis dengan rasa
+                        manis dan aroma yang khas.
+                    </p>
+
+                    <div class="price">
+                        Rp25.000 / kg
+                    </div>
+
+                    <button class="btn"
+                        onclick="addToCart('Mangga Harum Manis', 25000)">
+                        Tambah ke Keranjang
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- PRODUK 2 -->
+            <div class="card">
+
+                <div class="product-image">
+                    🥭
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Mangga Gedong Gincu</h3>
+
+                    <p>
+                        Mangga dengan warna menarik,
+                        rasa manis dan sedikit asam.
+                    </p>
+
+                    <div class="price">
+                        Rp30.000 / kg
+                    </div>
+
+                    <button class="btn"
+                        onclick="addToCart('Mangga Gedong Gincu', 30000)">
+                        Tambah ke Keranjang
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- PRODUK 3 -->
+            <div class="card">
+
+                <div class="product-image">
+                    🥭
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Mangga Manalagi</h3>
+
+                    <p>
+                        Mangga manalagi dengan rasa manis
+                        dan daging buah yang tebal.
+                    </p>
+
+                    <div class="price">
+                        Rp28.000 / kg
+                    </div>
+
+                    <button class="btn"
+                        onclick="addToCart('Mangga Manalagi', 28000)">
+                        Tambah ke Keranjang
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- KEUNGGULAN -->
+    <section class="features" id="keunggulan">
+
+        <div class="title">
+            <h2>Kenapa Beli di ManggaKu?</h2>
+        </div>
+
+        <div class="feature-container">
+
+            <div class="feature">
+                <div class="feature-icon">🌱</div>
+                <h3>Fresh</h3>
+                <p>
+                    Mangga dipilih dan dikemas dalam kondisi segar.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🚚</div>
+                <h3>Pengiriman Cepat</h3>
+                <p>
+                    Pesanan segera diproses setelah pembayaran.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">⭐</div>
+                <h3>Kualitas Terbaik</h3>
+                <p>
+                    Kami memilih mangga dengan kualitas terbaik.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- KERANJANG -->
+    <section class="cart" id="keranjang">
+
+        <div class="title">
+            <h2>🛒 Keranjang Belanja</h2>
+        </div>
+
+        <div class="cart-box">
+
+            <div id="cartItems">
+                Keranjang masih kosong.
+            </div>
+
+            <div class="total">
+                Total: <span id="total">Rp0</span>
+            </div>
+
+            <button class="btn" onclick="checkout()">
+                Checkout via WhatsApp
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <h3>🥭 ManggaKu</h3>
+
+        <p>
+            Mangga segar berkualitas untuk keluarga Indonesia.
+        </p>
+
+        <br>
+
+        <p>
+            © 2026 ManggaKu. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        let cart = [];
+
+        function addToCart(name, price) {
+
+            cart.push({
+                name: name,
+                price: price
+            });
+
+            updateCart();
+
+            alert(name + " berhasil ditambahkan ke keranjang!");
+
+        }
+
+
+        function updateCart() {
+
+            const cartItems = document.getElementById("cartItems");
+
+            const totalElement = document.getElementById("total");
+
+            if (cart.length === 0) {
+
+                cartItems.innerHTML =
+                    "Keranjang masih kosong.";
+
+                totalElement.innerText =
+                    "Rp0";
+
+                return;
+            }
+
+
+            let html = "";
+            let total = 0;
+
+
+            cart.forEach((item, index) => {
+
+                total += item.price;
+
+                html += `
+                    <div class="cart-item">
+
+                        <span>
+                            ${item.name}
+                        </span>
+
+                        <span>
+                            Rp${item.price.toLocaleString("id-ID")}
+
+                            <button
+                                onclick="removeItem(${index})"
+                                style="
+                                    margin-left:10px;
+                                    border:none;
+                                    background:#e74c3c;
+                                    color:white;
+                                    padding:5px 8px;
+                                    border-radius:5px;
+                                    cursor:pointer;
+                                ">
+                                X
+                            </button>
+
+                        </span>
+
+                    </div>
+                `;
+
+            });
+
+
+            cartItems.innerHTML = html;
+
+            totalElement.innerText =
+                "Rp" + total.toLocaleString("id-ID");
+
+        }
+
+
+        function removeItem(index) {
+
+            cart.splice(index, 1);
+
+            updateCart();
+
+        }
+
+
+        function checkout() {
+
+            if (cart.length === 0) {
+
+                alert("Keranjang masih kosong!");
+
+                return;
+            }
+
+
+            let message =
+                "Halo ManggaKu, saya ingin memesan:%0A%0A";
+
+            let total = 0;
+
+
+            cart.forEach((item, index) => {
+
+                message +=
+                    `${index + 1}. ${item.name} - Rp${item.price.toLocaleString("id-ID")}%0A`;
+
+                total += item.price;
+
+            });
+
+
+            message +=
+                `%0ATotal: Rp${total.toLocaleString("id-ID")}`;
+
+
+            // GANTI DENGAN NOMOR WHATSAPP TOKO
+            const phone = "6281234567890";
+
+
+            window.open(
+                "https://wa.me/" + phone + "?text=" + message,
+                "_blank"
+            );
+
+        }
+
+    </script>
+
+</body>
+</html>
+
